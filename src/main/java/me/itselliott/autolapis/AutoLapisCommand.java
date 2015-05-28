@@ -26,6 +26,8 @@ public class AutoLapisCommand {
         AutoLapis.getInstance().setLapisEnabled(!AutoLapis.getInstance().isLapisEnabled());
         //Update config file
         AutoLapis.getInstance().getConfig().set("autoLapis", !AutoLapis.getInstance().isLapisEnabled());
+        //Save config file
+        AutoLapis.getInstance().saveConfig();
         //Send a message to the sender of what the new value is
         sender.sendMessage(ChatColor.BLUE + "Lapis: " + (AutoLapis.getInstance().isLapisEnabled() ? ChatColor.GREEN + "Enabled" : ChatColor.RED + "Disabled"));
     }
@@ -37,6 +39,8 @@ public class AutoLapisCommand {
         AutoLapis.getInstance().setLapisEnabled(BooleanUtils.toBoolean(args.getString(0)));
         //Update config file
         AutoLapis.getInstance().getConfig().set("autoLapis", BooleanUtils.toBoolean(args.getString(0)));
+        //Save config file
+        AutoLapis.getInstance().saveConfig();
         //Send a message to the sender of what the new value is
         sender.sendMessage(ChatColor.BLUE + "Lapis: " + (AutoLapis.getInstance().isLapisEnabled() ? ChatColor.GREEN + "Enabled" : ChatColor.RED + "Disabled"));
 

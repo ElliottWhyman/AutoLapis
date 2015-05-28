@@ -50,5 +50,17 @@ public class EnchantmentInventory implements Listener {
         }
     }
 
+    /**
+     * Prevent player from taking lapis
+     */
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (event.getInventory() instanceof EnchantingInventory) {
+            if (AutoLapis.getInstance().isLapisEnabled())
+                if (event.getSlot() == 1)
+                    event.setCancelled(true);
+        }
+    }
+
 
 }
